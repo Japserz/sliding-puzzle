@@ -24,27 +24,25 @@ export class BoardComponent implements OnInit {
 
   moves: number = 0;
 
+  easyStart: number = 10;
+
   constructor(
     private shuffleService: ShuffleService,
     private moveService: MoveService
   ) {}
 
   ngOnInit() {
-    this.shuffle(10);
+    this.shuffle(this.easyStart);
   }
 
   validate(): void {
-    let valid: boolean = true;
     let flattenedBoard: number[] = this.board.flat();
     for (let i = 0; i < flattenedBoard.length; i++) {
       if (flattenedBoard[i] != i + 1) {
-        valid = false;
-        break;
+        return;
       }
     }
-    if (valid) {
-      this.win = true;
-    }
+    this.win = true;
   }
 
   shuffle(amount: number): void {

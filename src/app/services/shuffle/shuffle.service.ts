@@ -14,15 +14,15 @@ export class ShuffleService {
       this.board = board;
       this.start = false;
     }
-    let emptyLocation = this.moveService.getBoardIndex(board, 16);
-    let possibleMoves = [
+    const emptyLocation = this.moveService.getBoardIndex(board, 16);
+    const possibleMoves = [
       [-1, 0],
       [1, 0],
       [0, -1],
       [0, 1],
     ];
 
-    let move = possibleMoves[Math.floor(Math.random() * 4)];
+    const move = possibleMoves[Math.floor(Math.random() * 4)];
     if (
       emptyLocation[0] + move[0] < 0 ||
       emptyLocation[0] + move[0] >= board.length ||
@@ -31,7 +31,7 @@ export class ShuffleService {
     ) {
       this.shuffle(amount, board);
     } else {
-      let tile =
+      const tile =
         this.board[emptyLocation[0] + move[0]][emptyLocation[1] + move[1]];
       this.moveService.swapTiles(board, tile, 16);
 
@@ -46,12 +46,12 @@ export class ShuffleService {
   setEmptyBottomRight(board: number[][]): void {
     let emptyLocation = this.moveService.getBoardIndex(board, 16);
     while (emptyLocation[0] != 3) {
-      let tile = this.board[emptyLocation[0] + 1][emptyLocation[1]];
+      const tile = this.board[emptyLocation[0] + 1][emptyLocation[1]];
       this.moveService.swapTiles(board, tile, 16);
       emptyLocation = this.moveService.getBoardIndex(board, 16);
     }
     while (emptyLocation[1] != 3) {
-      let tile = this.board[emptyLocation[0]][emptyLocation[1] + 1];
+      const tile = this.board[emptyLocation[0]][emptyLocation[1] + 1];
       this.moveService.swapTiles(board, tile, 16);
       emptyLocation = this.moveService.getBoardIndex(board, 16);
     }
