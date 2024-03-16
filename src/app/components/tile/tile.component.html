@@ -1,0 +1,10 @@
+<div
+  class="tile"
+  [ngStyle]="{
+    'background-position-x': left + '%',
+    'background-position-y': top + '%'
+  }"
+  [ngClass]="{ bgGrey: id == 16 }"
+>
+  <p [ngClass]="{ hidden: id == 16 }">{{ id }}</p>
+</div>

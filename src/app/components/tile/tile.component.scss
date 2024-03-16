@@ -1,0 +1,25 @@
+.tile {
+  width: 198px;
+  height: 198px;
+  border-radius: 5px;
+  background-image: url("/assets/McMain Software Logo.png");
+  background-size: 800px 800px;
+  border: 1px solid #003865;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  p {
+    font-size: 2rem;
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &.bgGrey {
+    background-image: none;
+    background-color: #e6f4f4;
+  }
+}
